@@ -6,10 +6,24 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
+/* This is a common technique called a CSS reset.
+Different browsers use different default margins, causing sites to look different by margins. 
+The * means "all elements" (a universal selector), so we are setting all elements to have zero margins, and zero padding, 
+thus making them look the same in all browsers. */
 * {
   margin: 0;
   padding: 0;
+/*   The box-sizing property can be used to adjust this behavior:
+
+content-box gives you the default CSS box-sizing behavior.
+    If you set an element's width to 100 pixels, then the element's
+    content box will be 100 pixels wide, and the width of any 
+    border or padding will be added to the final rendered width,
+    making the element wider than 100px.
+border-box tells the browser to account for any border and padding in the values
+    you specify for an element's width and height. If you set an element's width to 100 pixels,
+    that 100 pixels will include any border or padding you added, 
+    and the content box will shrink to absorb that extra width. This typically makes it much easier to size elements. */
   box-sizing: border-box;
 }
 body {
@@ -22,14 +36,32 @@ body {
 }
 
 .header {
+/*   95% height of viewport means display screen */
   height: 95vh;
+/*   The linear-gradient() function sets a linear gradient as the background image.
+  To create a linear gradient you must define at least two color stops. 
+  Color stops are the colors you want to render smooth transitions among. 
+  You can also set a starting point and a direction (or an angle) along with the gradient effect. */
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.801),
       rgba(40, 180, 133, 0.801)
     ),
     url("../img/hero.jpg");
+/*   background-size: auto|length|cover|contain|initial|inherit;
+  auto-	Default value. The background image is displayed in its original size	
+length-	Sets the width and height of the background image. 
+  The first value sets the width, the second value sets the height.
+  If only one value is given, the second is set to "auto". Read about length units	
+percentage-	Sets the width and height of the background image in percent of the parent element. 
+  The first value sets the width, the second value sets the height. If only one value is given, the second is set to "auto"	
+cover-	Resize the background image to cover the entire container, 
+  even if it has to stretch the image or cut a little bit off one of the edges	
+contain-	Resize the background image to make sure the image is fully visible	
+initial-	Sets this property to its default value. Read about initial	
+inherit-	Inherits this property from its parent element. Read about inherit */
   background-size: cover;
+  set background-img to top
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
